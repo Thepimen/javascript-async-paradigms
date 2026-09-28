@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Actividad 2 - Desarrollo de Interfaces: Implementación y análisis comparativo de paradigmas asíncronos en JavaScript (Callback clásico, Fetch con Promesas y Async/Await).">
+    <title>Actividad 2: Paradigmas Asíncronos en JavaScript | Nebrija</title>
+    <!-- Fuente Inter para acabado profesional e institucional -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Encabezado Institucional -->
+    <header class="header-institutional">
+        <div class="header-container">
+            <span class="badge-tag">Desarrollo de Interfaces • Actividad 2</span>
+            <h1>Paradigmas Asíncronos en JavaScript</h1>
+            <p>Implementación comparativa de consumo de la API REST de JSONPlaceholder mediante <strong>Callback clásico (XMLHttpRequest)</strong>, <strong>API Fetch con Promesas</strong> y <strong>Async / Await moderno</strong>.</p>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal -->
+    <main class="main-container">
+        <!-- Barra de Controles Globales -->
+        <section class="controls-bar" aria-label="Controles de ejecución">
+            <div class="controls-info">
+                <h2>Panel de Pruebas y Depuración</h2>
+                <p>Abre las DevTools de tu navegador (<kbd>F12</kbd> o <kbd>Ctrl + Shift + I</kbd> &rarr; Consola) para observar los registros formateados.</p>
+            </div>
+            <div>
+                <button id="btn-run-all" class="btn btn-primary" onclick="ejecutarTodosLosCasos()">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                    </svg>
+                    Ejecutar los 3 Casos Secuencialmente
+                </button>
+            </div>
+        </section>
+
+        <!-- Tarjetas Descriptivas de los 3 Casos Exigidos -->
+        <section class="cases-grid" aria-label="Casos de asincronía">
+            <!-- Caso 1 -->
+            <article class="case-card case-1">
+                <div class="case-header">
+                    <span class="case-number">Caso 1</span>
+                </div>
+                <h3>Callback Clásico</h3>
+                <p class="case-description">
+                    Petición asíncrona mediante el objeto nativo <code>XMLHttpRequest</code> implementando la firma estricta <code>(url, callback)</code> bajo la convención de manejo de errores <em>Error-First</em>.
+                </p>
+                <div class="case-meta">XMLHttpRequest • Error-First Callback</div>
+                <button id="btn-case-1" class="btn btn-case-1" onclick="ejecutarCaso1()">
+                    Probar Caso 1
+                </button>
+            </article>
+
+            <!-- Caso 2 -->
+            <article class="case-card case-2">
+                <div class="case-header">
+                    <span class="case-number">Caso 2</span>
+                </div>
+                <h3>Fetch con Promesas</h3>
+                <p class="case-description">
+                    Consumo mediante la moderna <code>Fetch API</code> nativa encadenando métodos <code>.then()</code> para resolución y desempaquetado de JSON, y <code>.catch()</code> para captura de errores.
+                </p>
+                <div class="case-meta">fetch() • Promesas (.then / .catch)</div>
+                <button id="btn-case-2" class="btn btn-case-2" onclick="ejecutarCaso2()">
+                    Probar Caso 2
+                </button>
+            </article>
+
+            <!-- Caso 3 -->
+            <article class="case-card case-3">
+                <div class="case-header">
+                    <span class="case-number">Caso 3</span>
+                </div>
+                <h3>Async / Await Moderno</h3>
+                <p class="case-description">
+                    Sintaxis síncrona declarativa sobre código asíncrono utilizando la palabra clave <code>await</code> dentro de una función <code>async</code> con estructura de control de excepciones <code>try / catch</code>.
+                </p>
+                <div class="case-meta">async / await • try / catch</div>
+                <button id="btn-case-3" class="btn btn-case-3" onclick="ejecutarCaso3()">
+                    Probar Caso 3
+                </button>
+            </article>
+        </section>
+
+        <!-- Visor Descriptivo de Respuesta JSON -->
+        <section class="visor-section" aria-label="Visor descriptivo de respuesta">
+            <div class="visor-header">
+                <div class="visor-title-container">
+                    <div class="visor-dots">
+                        <span class="dot dot-red"></span>
+                        <span class="dot dot-yellow"></span>
+                        <span class="dot dot-green"></span>
+                    </div>
+                    <span id="output-title" class="visor-title">Visor de Respuesta Asíncrona (JSONPlaceholder)</span>
+                </div>
+                <span id="output-status" class="status-pill status-caso3">EN ESPERA</span>
+            </div>
+            <div class="visor-body">
+                <pre id="output-content" class="code-output">// Haz clic en cualquiera de los botones superiores o abre la consola de desarrollo (F12) para inspeccionar el flujo de ejecución.</pre>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página institucional -->
+    <footer>
+        <p>&copy; 2026 Universidad Antonio de Nebrija &bull; Asignatura: Desarrollo de Interfaces &bull; Actividad 2</p>
+    </footer>
+
+    <!-- Vinculación del script con los 3 casos -->
+    <script src="script.js"></script>
+</body>
+
+</html>
